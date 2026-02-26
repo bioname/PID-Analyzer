@@ -52,13 +52,23 @@ The whole thing is still under development and results/input of different and mo
 
 ### Installation
 
-1. **Create and activate a virtual environment:**
+1. **Download blackbox_decode tool:**
+   
+   Download the appropriate version for your platform from:
+   **https://github.com/cleanflight/blackbox-tools/releases**
+   
+   - **Windows:** Download and extract `Blackbox_decode.exe`
+   - **macOS/Linux:** Download and extract `blackbox_decode`
+   
+   Place the executable in the same directory as `PID-Analyzer.py`
+
+2. **Create and activate a virtual environment:**
    ```bash
    python3 -m venv fpv
    source fpv/bin/activate  # On Windows: fpv\Scripts\activate
    ```
 
-2. **Install dependencies:**
+3. **Install dependencies:**
    ```bash
    pip install -r requirements.txt
    ```
@@ -117,7 +127,10 @@ python PID-Analyzer.py --log ~/Downloads/LOG00001.BBL --name "Batch_Analysis" --
 ### Troubleshooting
 
 - **Import errors:** Make sure your virtual environment is activated and all dependencies are installed
-- **Missing blackbox_decode:** Download from [blackbox-tools releases](https://github.com/cleanflight/blackbox-tools/releases)
+- **"Could not find blackbox_decode" error:** 
+  - Download from [blackbox-tools releases](https://github.com/cleanflight/blackbox-tools/releases)
+  - Windows: Place `Blackbox_decode.exe` in the project folder
+  - macOS/Linux: Place `blackbox_decode` in the project folder  
 - **Python version issues:** This updated version requires Python 3.8+
 
 The windows executable includes a virtual python environment and only requires you to drag and drop your Betaflight blackbox logfile into the cmd window.

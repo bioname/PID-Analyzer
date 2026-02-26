@@ -47,3 +47,8 @@ LOG*temp*
 
 # Temporary files
 tmp/
+
+# Blackbox tools (download from https://github.com/cleanflight/blackbox-tools)
+blackbox_decode*
+Blackbox_decode*
+blackbox_render*

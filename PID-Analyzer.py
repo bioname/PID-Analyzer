@@ -935,6 +935,18 @@ class BB_log:
         return loglist
 
 
+def find_blackbox_decode():
+    """Find blackbox_decode executable in current directory"""
+    import platform
+    
+    if platform.system() == 'Windows':
+        filename = 'Blackbox_decode.exe'
+    else:
+        filename = 'blackbox_decode'
+    
+    return os.path.join(os.getcwd(), filename)
+
+
 def run_analysis(log_file_path, plot_name, blackbox_decode, show, noise_bounds):
     test = BB_log(log_file_path, plot_name, blackbox_decode, show, noise_bounds)
     logging.info('Analysis complete, showing plot. (Close plot to exit.)')
@@ -961,8 +973,8 @@ if __name__ == "__main__":
     parser.add_argument('-n', '--name', default='tmp', help='Plot name.')
     parser.add_argument(
         '--blackbox_decode',
-        default=os.path.join(os.getcwd(), 'Blackbox_decode.exe'),
-        help='Path to Blackbox_decode.exe.')
+        default=find_blackbox_decode(),
+        help='Path to blackbox_decode executable.')
     parser.add_argument('-s', '--show', default='Y', help='Y = show plot window when done.\nN = Do not. \nDefault = Y')
     parser.add_argument('-nb', '--noise_bounds', default='[[1.,10.1],[1.,100.],[1.,100.],[0.,4.]]', help='bounds of plots in noise analysis. use "auto" for autoscaling. \n default=[[1.,10.1],[1.,100.],[1.,100.],[0.,4.]]')
     args = parser.parse_args()
@@ -975,7 +987,7 @@ if __name__ == "__main__":
         args.noise_bounds = args.noise_bounds
     if not os.path.isfile(blackbox_decode_path):
         parser.error(
-            ('Could not find Blackbox_decode.exe (used to generate CSVs from '
+            ('Could not find blackbox_decode executable (used to generate CSVs from '
              'your BBL file) at %s. You may need to install it from '
              'https://github.com/cleanflight/blackbox-tools/releases.')
             % blackbox_decode_path)
