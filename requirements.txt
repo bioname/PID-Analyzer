@@ -1,0 +1,7 @@
+# Updated requirements for Python 3.8+ compatibility
+# Original project used older versions, these are modern equivalents
+numpy>=2.0.0
+scipy>=1.10.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+six>=1.16.0
