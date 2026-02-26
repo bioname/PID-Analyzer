@@ -2,6 +2,8 @@
 # PID-Analyzer (Python 3.8+ Compatible)
 
 > **🔄 Modernized Version:** This is an updated version of the original PID-Analyzer with full Python 3.8+ compatibility and modern package support.
+> 
+> **📎 Original Project:** Based on [Plasmatree/PID-Analyzer](https://github.com/Plasmatree/PID-Analyzer)
 
 ### PID-Analyzer 0.52 changes:
 - Fixed the noise plot ranges for better visual comparability with option for custom or auto range
